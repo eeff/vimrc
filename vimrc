@@ -79,7 +79,9 @@
       " - status: 'installed', 'updated', or 'unchanged'
       " - force:  set on PlugInstall! or PlugUpdate!
       if a:info.status == 'updated' || a:info.force
-        !./install.py --clang-completer --go-completer
+        !git submodule update --init --recursive
+        echom "./install.py" . g:spf13_ycm_completer
+        exec "./install.py" . g:spf13_ycm_completer
       endif
     endfunction
   " }
@@ -743,6 +745,7 @@
       nmap <leader>nt :NERDTreeFind<CR>
 
       let NERDShutUp=1
+      let NERDTreeQuitOnOpen=0
       let NERDTreeShowBookmarks=1
       let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
       let NERDTreeChDirMode=0
@@ -799,6 +802,7 @@
   " }
 
   " YouCompleteMe {
+    let g:spf13_ycm_completer = '--clang-completer --go-completer'
     if isdirectory(expand("~/.vim/plugged/YouCompleteMe/"))
       let g:acp_enableAtStartup = 0
       " enable completion from tags
