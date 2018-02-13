@@ -71,6 +71,8 @@
   Plug 'luochen1990/rainbow'
   Plug 'flazz/vim-colorschemes'
   Plug 'vim-scripts/sessionman.vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'terryma/vim-multiple-cursors'
 
   " Build YouCompleteMe {
     function! BuildYCM(info)
@@ -97,18 +99,27 @@
   Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
   Plug 'scrooloose/nerdcommenter', { 'on': 'NERDComToggleComment' }
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
-  Plug 'jpalardy/vim-slime'
+  Plug 'jpalardy/vim-slime', { 'on': ['<Plug>SlimeRegionSend',
+                              \       '<Plug>SlimeParagraphSend',
+                              \       '<Plug>SlimeLineSend',
+                              \       '<Plug>SlimeMotionSend',
+                              \       '<Plug>SlimeConfig',
+                              \       'SlimeSend'] }
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'brookhong/cscope.vim', { 'for': ['c', 'cpp'] }
   Plug 'python-mode/python-mode', { 'for': 'python' }
   Plug 'spf13/PIV', { 'for': 'php' }
+  " Using manual indentation to express dependency
+  Plug 'kien/ctrlp.vim', {
+        \ 'on': ['CtrlP', 'CtrlPMRU', 'CtrlPBuffer', 'CtrlPMixed'] }
+    Plug 'tacahiroy/ctrlp-funky', { 'on': 'CtrlPFunky' }
   "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
   " Using a non-master branch
   "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
   " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-  "Plug 'fatih/vim-go', { 'tag': '*' }
+  Plug 'fatih/vim-go', { 'tag': '*' }
 
   " Plugin options
   "Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
@@ -607,6 +618,7 @@
   " ctrlp {
     if isdirectory(expand("~/.vim/plugged/ctrlp.vim/"))
       let g:ctrlp_working_path_mode = 'ra'
+      nnoremap <silent> <C-p> :CtrlP<CR>
       nnoremap <silent> <D-t> :CtrlP<CR>
       nnoremap <silent> <D-r> :CtrlPMRU<CR>
       let g:ctrlp_custom_ignore = {
@@ -802,8 +814,8 @@
   " }
 
   " YouCompleteMe {
-    let g:spf13_ycm_completer = '--clang-completer --go-completer'
     if isdirectory(expand("~/.vim/plugged/YouCompleteMe/"))
+      let g:spf13_ycm_completer = '--clang-completer --go-completer'
       let g:acp_enableAtStartup = 0
       " enable completion from tags
       let g:ycm_collect_identifiers_from_tags_files = 1
