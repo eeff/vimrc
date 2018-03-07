@@ -82,8 +82,8 @@
       " - force:  set on PlugInstall! or PlugUpdate!
       if a:info.status == 'updated' || a:info.force
         !git submodule update --init --recursive
-        echom "./install.py" . g:spf13_ycm_completer
-        exec "./install.py" . g:spf13_ycm_completer
+        echom "./install.py " . g:spf13_ycm_completer
+        exec "./install.py " . g:spf13_ycm_completer
       endif
     endfunction
   " }
@@ -97,6 +97,7 @@
 
   " On-demand loading
   Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
+  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
   Plug 'scrooloose/nerdcommenter', { 'on': 'NERDComToggleComment' }
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
   Plug 'jpalardy/vim-slime', { 'on': ['<Plug>SlimeRegionSend',
@@ -579,6 +580,7 @@
       au FileType go nmap <Leader>gd <Plug>(go-doc)
       au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
       au FileType go nmap <leader>co <Plug>(go-coverage)
+      autocmd BufNewFile,BufRead *.go setlocal listchars=tab:\ \ ,trail:·,extends:\#,nbsp:.
     endif
   " }
 
@@ -757,7 +759,7 @@
       nmap <leader>nt :NERDTreeFind<CR>
 
       let NERDShutUp=1
-      let NERDTreeQuitOnOpen=0
+      let NERDTreeAutoDeleteBuffer = 1
       let NERDTreeShowBookmarks=1
       let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
       let NERDTreeChDirMode=0
@@ -766,6 +768,8 @@
       let NERDTreeShowHidden=1
       let NERDTreeKeepTreeInNewTab=1
       let g:nerdtree_tabs_open_on_gui_startup=0
+
+      autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
     endif
   " }
 
