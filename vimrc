@@ -81,7 +81,7 @@
       " - status: 'installed', 'updated', or 'unchanged'
       " - force:  set on PlugInstall! or PlugUpdate!
       if a:info.status == 'updated' || a:info.force
-        !git submodule update --init --recursive
+        !git submodule update --init --force --recursive
         echom "./install.py " . g:spf13_ycm_completer
         exec "./install.py " . g:spf13_ycm_completer
       endif
@@ -117,7 +117,7 @@
   "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
   " Using a non-master branch
-  "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+  Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
   " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
   Plug 'fatih/vim-go', { 'tag': '*' }
@@ -763,7 +763,7 @@
       let NERDTreeShowBookmarks=1
       let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
       let NERDTreeChDirMode=0
-      let NERDTreeQuitOnOpen=1
+      let NERDTreeQuitOnOpen=0
       let NERDTreeMouseMode=2
       let NERDTreeShowHidden=1
       let NERDTreeKeepTreeInNewTab=1
@@ -819,7 +819,7 @@
 
   " YouCompleteMe {
     if isdirectory(expand("~/.vim/plugged/YouCompleteMe/"))
-      let g:spf13_ycm_completer = '--clang-completer --go-completer'
+      let g:spf13_ycm_completer = '--clang-completer --go-completer --rust-completer'
       let g:acp_enableAtStartup = 0
       " enable completion from tags
       let g:ycm_collect_identifiers_from_tags_files = 1
