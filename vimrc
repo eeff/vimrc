@@ -73,6 +73,9 @@
   Plug 'vim-scripts/sessionman.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'terryma/vim-multiple-cursors'
+  Plug 'junegunn/limelight.vim'
+  Plug 'junegunn/goyo.vim'
+  Plug 'rust-lang/rust.vim'
 
   " Build YouCompleteMe {
     function! BuildYCM(info)
@@ -559,6 +562,7 @@
     nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
     " i: Find files #including this file
     nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
+    let g:cscope_silent = 1
   " }
 
   " GoLang {
@@ -739,6 +743,12 @@
       nnoremap <silent> <leader>gg :SignifyToggle<CR>
       endif
   "}
+
+
+  " rust.vim {
+    let g:rustfmt_autosave = 1
+  " }
+
 
   " tagbar {
     if isdirectory(expand("~/.vim/plugged/tagbar/"))
