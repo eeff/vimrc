@@ -76,6 +76,7 @@
   Plug 'junegunn/limelight.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'rust-lang/rust.vim'
+  Plug 'lilydjwg/colorizer'
 
   " Build YouCompleteMe {
     function! BuildYCM(info)
