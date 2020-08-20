@@ -79,6 +79,7 @@
   Plug 'lilydjwg/colorizer'
   Plug 'Chiel92/vim-autoformat'
   Plug 'hashivim/vim-terraform'
+  Plug 'lambdalisue/vim-cython-syntax'
 
 
   " Build YouCompleteMe {
