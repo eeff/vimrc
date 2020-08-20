@@ -116,7 +116,7 @@
                               \       'SlimeSend'] }
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'brookhong/cscope.vim', { 'for': ['c', 'cpp'] }
-  Plug 'python-mode/python-mode', { 'for': 'python' }
+  Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
   Plug 'spf13/PIV', { 'for': 'php' }
   " Using manual indentation to express dependency
   Plug 'kien/ctrlp.vim', {
