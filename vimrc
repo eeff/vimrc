@@ -77,6 +77,8 @@
   Plug 'junegunn/goyo.vim'
   Plug 'rust-lang/rust.vim'
   Plug 'lilydjwg/colorizer'
+  Plug 'Chiel92/vim-autoformat'
+
 
   " Build YouCompleteMe {
     function! BuildYCM(info)
@@ -544,6 +546,14 @@
     endif
   " }
   
+  " autoformat {
+    let g:enable_auto_format = 1
+    au BufWrite * if g:enable_auto_format | :Autoformat | endif
+    let g:autoformat_autoindent = 0
+    let g:autoformat_retab = 0
+    let g:autoformat_remove_trailing_spaces = 0
+  " }
+
   " cscope {
     nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
     nnoremap <leader>l :call ToggleLocationList()<CR>
