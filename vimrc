@@ -64,7 +64,8 @@
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-syntastic/syntastic'
-  Plug 'spf13/vim-autoclose'
+  "Plug 'spf13/vim-autoclose'
+  Plug 'Raimondi/delimitMate'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
   Plug 'nathanaelkane/vim-indent-guides'
@@ -555,6 +556,9 @@
     let g:autoformat_remove_trailing_spaces = 0
   " }
 
+  " delimitMate {
+    let delimitMate_expand_cr = 1
+    let delimitMate_expand_space = 1
   " }
 
   " GoLang {
