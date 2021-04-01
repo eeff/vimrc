@@ -96,7 +96,7 @@
       endif
     endfunction
   " }
-  Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+  " Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
   " Any valid git URL is allowed
   "Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -125,7 +125,6 @@
   "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
   " Using a non-master branch
-  Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
   " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
   Plug 'fatih/vim-go', { 'tag': '*' }
