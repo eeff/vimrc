@@ -81,6 +81,10 @@
   Plug 'Chiel92/vim-autoformat'
   Plug 'hashivim/vim-terraform'
   Plug 'lambdalisue/vim-cython-syntax'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
+  Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 
   " Build YouCompleteMe {
@@ -546,7 +550,14 @@
         endif
     endif
   " }
-  
+
+  " asyncomplete {
+    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    " conflict with delimitMate_expand_cr
+    " inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+  " }
+
   " autoformat {
     let g:enable_auto_format = 1
     au BufWrite * if g:enable_auto_format | :Autoformat | endif
@@ -754,6 +765,15 @@
   " vim-terraform {
     let g:terraform_align=1
     let g:terraform_fmt_on_save=1
+  " }
+
+  " vim-lsp {
+    " d: Go to the definition of the word under the cursor, and open in the current window
+    nnoremap  <leader>fd :LspDefinition<CR>
+    " i: Show hover information
+    nnoremap  <leader>fi :LspNextReference<CR>
+    " r: Find references
+    nnoremap  <leader>fr :LspReferences<CR>
   " }
 
   " nerdcommenter {
