@@ -86,6 +86,7 @@
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
+  Plug 'puremourning/vimspector'
 
   " Build YouCompleteMe {
     function! BuildYCM(info)
@@ -774,6 +775,36 @@
     nnoremap  <leader>fi :LspNextReference<CR>
     " r: Find references
     nnoremap  <leader>fr :LspReferences<CR>
+  " }
+
+  " vimspector {
+    " b: Toggle breakpoint on the current line
+    nnoremap <Leader>db <Plug>VimspectorToggleBreakpoint
+    " bc: Toggle conditional line breakpoint on the current line.
+    nnoremap <Leader>dbc <Plug>VimspectorToggleConditionalBreakpoint
+    " bf: Add a function breakpoint for the expression under cursor
+    nnoremap <Leader>dbf <Plug>VimspectorAddFunctionBreakpoint
+    " c: When debugging, continue. Otherwise start debugging.
+    nnoremap <Leader>dc <Plug>VimspectorContinue
+    " cc: Run to cursor
+    nnoremap <Leader>dcc <Plug>VimspectorRunToCursor
+    " d: Move down a frame in the current call stack
+    nnoremap <Leader>dd <Plug>VimspectorDownFrame
+    " e: Evaluate expression under cursor (or visual) in popup
+    nnoremap <Leader>de <Plug>VimspectorBalloonEval
+    xnoremap <Leader>de <Plug>VimspectorBalloonEval
+    " n: Next
+    nnoremap <Leader>dn <Plug>VimspectorStepOver
+    " q: Quit debugging
+    nnoremap <Leader>dq <Plug>VimspectorStop
+    " r: Restart debugging with the same configuration.
+    nnoremap <Leader>dr <Plug>VimspectorRestart
+    " s: Step into
+    nnoremap <Leader>ds <Plug>VimspectorStepInto
+    " s: Step out
+    nnoremap <Leader>dso <Plug>VimspectorStepOut
+    " u: Move up a frame in the current call stack
+    nnoremap <Leader>du <Plug>VimspectorUpFrame
   " }
 
   " nerdcommenter {
