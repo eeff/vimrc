@@ -771,10 +771,22 @@
   " vim-lsp {
     " d: Go to the definition of the word under the cursor, and open in the current window
     nnoremap  <leader>fd :LspDefinition<CR>
-    " i: Show hover information
-    nnoremap  <leader>fi :LspNextReference<CR>
-    " r: Find references
+    " e: Go to next error
+    nnoremap  <leader>fe :LspNextError<CR>
+    " h: Show hover information
+    nnoremap  <leader>fh :LspHover<CR>
+    " i: Show implementation of interface in the current window.
+    nnoremap  <leader>fi :LspImplementation<CR>
+    " n: Go to next reference
+    nnoremap  <leader>fn :LspNextReference<CR>
+    " p: Go to previous reference
+    nnoremap  <leader>fp :LspPreviousReference<CR>
+    " r: Find all references
     nnoremap  <leader>fr :LspReferences<CR>
+    " t: Go to the type definition of the word under the cursor in the current window
+    nnoremap  <leader>ft :LspTypeDefinition<CR>
+    " w: Go to next warning
+    nnoremap  <leader>fw :LspNextWarning<CR>
   " }
 
   " vimspector {
