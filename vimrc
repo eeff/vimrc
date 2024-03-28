@@ -63,7 +63,8 @@
   "Plug 'junegunn/vim-easy-align'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'vim-syntastic/syntastic'
+  "Plug 'vim-syntastic/syntastic'
+  Plug 'dense-analysis/ale'
   "Plug 'spf13/vim-autoclose'
   Plug 'Raimondi/delimitMate'
   Plug 'tpope/vim-surround'
@@ -83,6 +84,7 @@
   Plug 'lambdalisue/vim-cython-syntax'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
+  Plug 'rhysd/vim-lsp-ale'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
@@ -596,15 +598,15 @@
   " }
 
   " syntastic {
-    if isdirectory(expand("~/.vim/plugged/syntastic"))
-      set statusline+=%#warningmsg#
-      set statusline+=%{SyntasticStatuslineFlag()}
-      set statusline+=%*
-      let g:syntastic_always_populate_loc_list = 1
-      let g:syntastic_auto_loc_list = 1
-      let g:syntastic_check_on_open = 1
-      let g:syntastic_check_on_wq = 0
-    endif
+  " if isdirectory(expand("~/.vim/plugged/syntastic"))
+  "   set statusline+=%#warningmsg#
+  "   set statusline+=%{SyntasticStatuslineFlag()}
+  "   set statusline+=%*
+  "   let g:syntastic_always_populate_loc_list = 1
+  "   let g:syntastic_auto_loc_list = 1
+  "   let g:syntastic_check_on_open = 1
+  "   let g:syntastic_check_on_wq = 0
+  " endif
   " }
 
   " tabular {
