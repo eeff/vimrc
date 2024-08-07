@@ -77,6 +77,7 @@
   Plug 'terryma/vim-multiple-cursors'
   Plug 'junegunn/limelight.vim'
   Plug 'junegunn/goyo.vim'
+  Plug 'JuliaEditorSupport/julia-vim'
   Plug 'rust-lang/rust.vim'
   Plug 'lilydjwg/colorizer'
   Plug 'Chiel92/vim-autoformat'
@@ -565,10 +566,34 @@
 
   " autoformat {
     let g:enable_auto_format = 1
-    au BufWrite * if g:enable_auto_format | :Autoformat | endif
     let g:autoformat_autoindent = 0
     let g:autoformat_retab = 0
     let g:autoformat_remove_trailing_spaces = 0
+
+    function! FormatLsp()
+      if !exists("b:autoformat_lsp_fail")
+        let b:autoformat_lsp_fail = 0
+        let b:autoformat_lsp_failures = 0
+      endif
+
+      if g:enable_auto_format && b:autoformat_lsp_failures < 3
+        if stridx(execute("LspDocumentFormatSync"), "complete") > 0
+          let b:autoformat_lsp_fail = 0
+        else
+          let b:autoformat_lsp_fail = 1
+          let b:autoformat_lsp_failures += 1
+        endif
+      endif
+    endfunction
+
+    function! FormatAutoformat()
+      if g:enable_auto_format && b:autoformat_lsp_fail
+        execute "Autoformat"
+      endif
+    endfunction
+
+    au BufWritePre * call FormatLsp()
+    au BufWrite * call FormatAutoformat()
   " }
 
   " delimitMate {
