@@ -75,6 +75,7 @@
   Plug 'vim-scripts/sessionman.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'terryma/vim-multiple-cursors'
+  Plug 'elixir-editors/vim-elixir'
   Plug 'junegunn/limelight.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'JuliaEditorSupport/julia-vim'
